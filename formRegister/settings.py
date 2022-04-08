@@ -23,7 +23,7 @@ SECRET_KEY = '6uxn3epq3lvcsdk@%pjq&po8ayfq=siolu07xvrc@lv(4+owgs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-alllow_url = 'https://life-main-app.herokuapp.com/'
+alllow_url = 'https://life-main-app.herokuapp.com'
 ALLOWED_HOSTS = [alllow_url]
 
 
