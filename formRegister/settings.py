@@ -121,3 +121,4 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'formRegister//static')]
 STATIC_ROOT = os.path.join(BASE_DIR,'static')
 print('Path =',os.path.join(BASE_DIR,'formRegister//static'))   
+
