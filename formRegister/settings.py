@@ -23,8 +23,9 @@ SECRET_KEY = '6uxn3epq3lvcsdk@%pjq&po8ayfq=siolu07xvrc@lv(4+owgs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-alllow_url = 'liff-main-app.herokuapp.com'
-ALLOWED_HOSTS = [alllow_url]
+heroku_url = 'liff-main-app.herokuapp.com'
+
+ALLOWED_HOSTS = ['2d63-58-10-144-178.ngrok.io']
 
 
 # Application definition

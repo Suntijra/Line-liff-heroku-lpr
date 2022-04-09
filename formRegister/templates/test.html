@@ -1,0 +1,32 @@
+{%extends 'main.html'%}
+
+{%block body%}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<form action="" method="get">
+    {{form.search}}
+    <button type="button" onclick="ajaxSubmit()">OK</button>
+</form>
+{%if form.is_valid%}
+    <br>
+    search for {{form.cleaned_data.search}}
+{%endif%}
+<script>
+    function ajaxSubmit(){
+        var search = document.getElementById('id_search').value
+        axios({
+            method:'get',
+            url: '',
+            params: {
+                'search': search
+            },
+            timeout:5000,
+            headers:{'X-Requested-With':'XMLHttpRequest'}
+        }).then(resopnse =>{
+            alert('Susscess')
+        }).catch(err=>{
+            alert('err')
+        })
+    }
+      
+</script>
+{%endblock%}

@@ -66,3 +66,19 @@ def webhook(request):
         }
         return render(request,'index.html',var)
 
+from .form import searchForm
+
+def search(request):
+    if request.is_ajax():
+        print('เป็น ajax')
+        if 'search' in request.GET:
+            print('มี request search')
+            search =request.GET['search']
+            print(search)
+        else:
+            print('ไม่เป็น ajax')
+    form = searchForm(request.GET)
+    vars = {
+        'form': form
+    }
+    return render(request,'test.html',vars)

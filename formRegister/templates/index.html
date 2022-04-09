@@ -174,14 +174,16 @@
           document.getElementById("btnClose").style.display = "none"
         }
       }
-      
-      async function ajaxSubmit(){
+      Liff_Init()
+
+        async function ajaxSubmit(){
         const profile = await liff.getProfile()
-        lineID = profile.userId
-        full_name = getElementById('name')
-        license_plate = getElementById('license_plate')
-        tel = getElementById('tel')
-        email = getElementById('Email')
+        alert('lineUserId submit :'+profile.userId)
+        var lineID = '6101187'/*profile.userId*/
+        var full_name = getElementById('name').value
+        var license_plate = getElementById('license_plate').value
+        var tel = getElementById('tel').value
+        var email = getElementById('Email').value
         
         axios({
             method:'get',
@@ -192,7 +194,6 @@
               'license_plate':license_plate,
               'tel':tel,
               'email':email
-        
             },
             timeout:5000,
             headers:{'X-Requested-With':'XMLHttpRequest'}
@@ -204,8 +205,9 @@
   
       async function Liff_Init() {
         await liff.init({ liffId: "1656692698-MAek81KQ" })
+        const profile = await liff.getProfile()
+        //alert(profile.userId)
       }
-      Liff_Init()
     </script>
 {%endblock%}
 

@@ -1,3 +1,4 @@
 from django import forms
-class Register_Form(forms.Form):
-        
+
+class searchForm(forms.Form):
+    search = forms.CharField(label='search')
