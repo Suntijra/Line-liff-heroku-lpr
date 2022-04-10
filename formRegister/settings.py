@@ -25,7 +25,7 @@ SECRET_KEY = '6uxn3epq3lvcsdk@%pjq&po8ayfq=siolu07xvrc@lv(4+owgs'
 DEBUG = True
 heroku_url = 'liff-main-app.herokuapp.com'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [heroku_url]
 
 
 # Application definition
