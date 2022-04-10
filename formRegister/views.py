@@ -7,7 +7,7 @@ import pymongo
 myclient = pymongo.MongoClient("mongodb://santi:Santi!12321@157.245.59.56:27018/?authSource=admin&readPreference=primary&directConnection=true&ssl=false")
 def check_register(lineID):
     query={
-        'lineID': lineID
+        'Line_Users_ID': lineID
     }
     mycol = myclient['LPR']['register']
     if mycol.find_one(query)==None:
