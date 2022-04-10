@@ -22,7 +22,7 @@
             timeout:5000,
             headers:{'X-Requested-With':'XMLHttpRequest'}
         }).then(resopnse =>{
-            alert('Susscess')
+            alert(resopnse.data.search)
         }).catch(err=>{
             alert('err')
         })

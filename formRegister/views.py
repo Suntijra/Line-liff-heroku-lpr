@@ -10,9 +10,10 @@ def check_register(lineID):
         'lineID': lineID
     }
     mycol = myclient['LPR']['register']
-    if mycol.find_one(query)!=None:
+    if mycol.find_one(query)==None:
         return True
     else:
+        print(mycol.find_one(query))
         print('Line_User_Id : ซำ้าๆๆๆๆๆ')
         return False
 def insert_data(lineID,name,license_plate,tel,email):
@@ -36,35 +37,15 @@ def index(request):
             name = request.GET['name']
             license_plate = request.GET['license_plate']
             tel = request.GET['tel']
-            email = request.GET['Email']
+            email = request.GET['email']
             print('Line user id :', lineID)
             insert_data(lineID,name,license_plate,tel,email)
-            return JsonResponse({
-            "Line_Users_ID": lineID,
-            'name': name,
-            'license_plate': license_plate,
-            'tel': tel,
-            'Email':email
-            })
         else:
             print('ไม่มี lineID เข้ามา')
     else:
         print('ไม่ใช่ Ajax')
     return render(request,'index.html',)
 
-def webhook(request):
-     if request.method == 'POST':
-        name = request.POST.get('name','ไม่มีชื่อส่งมา')
-        license_plate = request.POST.get('license_plate','ไม่มีชื่อส่งมา')
-        tel = request.POST.get('tel','ไม่มีชื่อส่งมา')
-        Email = request.POST.get('Email','ไม่มีชื่อส่งมา')
-        var = {
-            'name': name,
-            'license_plate': license_plate,
-            'tel': tel,
-            'Email':Email
-        }
-        return render(request,'index.html',var)
 
 from .form import searchForm
 
@@ -75,6 +56,7 @@ def search(request):
             print('มี request search')
             search =request.GET['search']
             print(search)
+            return JsonResponse({'search:':search})
         else:
             print('ไม่เป็น ajax')
     form = searchForm(request.GET)
@@ -82,3 +64,18 @@ def search(request):
         'form': form
     }
     return render(request,'test.html',vars)
+
+
+def webhook(request):
+    if request.method == 'POST':
+        name = request.POST.get('name','ไม่มีชื่อส่งมา')
+        license_plate = request.POST.get('license_plate','ไม่มีชื่อส่งมา')
+        tel = request.POST.get('tel','ไม่มีชื่อส่งมา')
+        Email = request.POST.get('Email','ไม่มีชื่อส่งมา')
+        var = {
+            'name': name,
+            'license_plate': license_plate,
+            'tel': tel,
+            'Email':Email
+        }
+    return render(request,'index.html',var)

@@ -174,17 +174,15 @@
           document.getElementById("btnClose").style.display = "none"
         }
       }
-      Liff_Init()
-
+      //Liff_Init()
         async function ajaxSubmit(){
         const profile = await liff.getProfile()
         alert('lineUserId submit :'+profile.userId)
         var lineID = '6101187'/*profile.userId*/
-        var full_name = getElementById('name').value
-        var license_plate = getElementById('license_plate').value
-        var tel = getElementById('tel').value
-        var email = getElementById('Email').value
-        
+        var full_name = document.getElementById('name').value
+        var license_plate = document.getElementById('license_plate').value
+        var tel = document.getElementById('tel').value
+        var email = document.getElementById('Email').value
         axios({
             method:'get',
             url: '',
