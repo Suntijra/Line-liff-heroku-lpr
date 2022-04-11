@@ -195,14 +195,9 @@
             timeout:5000,
             headers:{'X-Requested-With':'XMLHttpRequest'}
         }).then(response=>{
-            if(response.data.Status == true){
-              alert('ท่านลงทะเบียนสำเร็จ')
-            }
-            else{
-              alert('ท่านลงทะเบียนไปแล้ว')
-            }
+            alert('ท่านลงทะเบีนนสำเร็จ')
         }).catch(error =>{
-          alert(error+'Error มีบางอย่างผิดพลาด')
+          alert(error)
       })    }
   
       async function Liff_Init() {

@@ -17,16 +17,17 @@ def check_register(lineID):
         print('Line_User_Id : ซำ้าๆๆๆๆๆ')
         return False
 def insert_data(lineID,name,license_plate,tel,email):
-    mydb = myclient["LPR"]
-    mycol = mydb["register"]
-    mydict = { 
-        "Line_Users_ID": lineID,
-        'name': name,
-        'license_plate': license_plate,
-        'tel': tel,
-        'Email':email
-    }
-    mycol.insert_one(mydict)
+    if check_register(lineID):
+        mydb = myclient["LPR"]
+        mycol = mydb["register"]
+        mydict = { 
+            "Line_Users_ID": lineID,
+            'name': name,
+            'license_plate': license_plate,
+            'tel': tel,
+            'Email':email
+        }
+        mycol.insert_one(mydict)
 
 def index(request):
     if request.is_ajax():
@@ -38,11 +39,7 @@ def index(request):
             tel = request.GET['tel']
             email = request.GET['email']
             print('Line user id :', lineID)
-            if check_register(lineID):
-                insert_data(lineID,name,license_plate,tel,email)
-                return JsonResponse({'Status':True})
-            else:
-                return JsonResponse({'Status':False})    
+            insert_data(lineID,name,license_plate,tel,email)
         else:
             print('ไม่มี lineID เข้ามา')
     else:
