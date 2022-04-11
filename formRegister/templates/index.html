@@ -177,6 +177,7 @@
       Liff_Init()
         async function ajaxSubmit(){
         const profile = await liff.getProfile()
+        alert('lineUserId submit :'+profile.userId)
         var lineID = profile.userId
         var full_name = document.getElementById('name').value
         var license_plate = document.getElementById('license_plate').value
