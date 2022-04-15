@@ -31,7 +31,7 @@ def insert_data(lineID,name,license_plate,tel,email):
 def index(request):
     if request.is_ajax():
         print('เป็น Ajax')
-        if not request.GET['name'] :
+        if not request.GET['lineID'] :
             lineID = request.GET['lineID']
             name = request.GET['name']
             license_plate = request.GET['license_plate']
