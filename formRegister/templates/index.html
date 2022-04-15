@@ -24,7 +24,7 @@
             <div class="form h-100 contact-wrap p-5">
               <center><img src="{%static '/images/RSU_logo.jpg'%}" alt="Rsu_Logo" width=30%></center>
               <br>
-              <form class="mb-5" method="get" id="contact_Form" name="contact_Form"  action="#">
+              <form class="mb-5" method="get" id="contact_Form" name="contact_Form"  action="#" onsubmit="ajaxSubmit()">
                 <div class="row">
                   <div class="col-md-12 form-group mb-3">
                     <label for="" class="col-form-label">Full-Name / ชื่อ-นามสกุล *</label>
@@ -53,7 +53,7 @@
                 <div class="row justify-content-center">
                   <div class="col-md-5 form-group text-center">
                     <!-- <button type="submit" class="btn btn-lg btn-primary" onclick="ajaxSubmit()" >ลงทะเบียน</button> -->
-                    <input class="btn btn-primary" onsubmit="ajaxSubmit()"  type="submit" value="ลงทะเบียน">
+                    <input class="btn btn-primary" type="submit" value="ลงทะเบียน">
                     <span class="submitting"></span>
                   </div>
                 </div>
