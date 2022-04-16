@@ -85,11 +85,11 @@
         document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
       }
       
-      Liff_Init()
+      //Liff_Init()
         async function ajaxSubmit(){
         //const profile = await liff.getProfile()
         //alert('lineUserId submit :'+profile.userId)
-        var lineID = '22222222'
+        var lineID = '3333'
         var full_name = document.getElementById('name').value
         var license_plate = document.getElementById('license_plate').value
         var tel = document.getElementById('tel').value
@@ -118,6 +118,21 @@
             }
         }).catch(error =>{
           alert(error+'Error มีบางอย่างผิดพลาด')
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+          }
       })    }
   
       async function Liff_Init() {

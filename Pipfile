@@ -9,6 +9,7 @@ django-crispy-forms = "*"
 pymongo = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 

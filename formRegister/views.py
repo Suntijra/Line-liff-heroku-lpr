@@ -40,9 +40,10 @@ def index(request):
             print('Line user id :', lineID)
             if check_register(lineID):
                 insert_data(lineID,name,license_plate,tel,email)
-                return JsonResponse({'Status':True})
+                return JsonResponse({'Status':check_register(lineID)})
             else:
-                return JsonResponse({'Status':False})    
+                print('check line id : ',check_register(lineID))
+                return JsonResponse({'Status':check_register(lineID)})    
         else:
             return JsonResponse({'Status':'กรุณาเติมข้อความให้ครบทุกช่อง'})
     else:
