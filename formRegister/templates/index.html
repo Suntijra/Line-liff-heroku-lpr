@@ -24,7 +24,7 @@
             <div class="form h-100 contact-wrap p-5">
               <center><img src="{%static '/images/RSU_logo.jpg'%}" alt="Rsu_Logo" width=30%></center>
               <br>
-              <form class="mb-5" method="get" id="contact_Form" name="contact_Form"  action="{% url 'index'%}">
+              <form class="mb-5" method="get" id="contact_Form" name="contact_Form"  action="#">
                 <div class="row">
                   <div class="col-md-12 form-group mb-3">
                     <label for="" class="col-form-label">Full-Name / ชื่อ-นามสกุล *</label>
@@ -53,7 +53,7 @@
                 <div class="row justify-content-center">
                   <div class="col-md-5 form-group text-center">
                     <!-- <button type="submit" class="btn btn-lg btn-primary" onclick="ajaxSubmit()" >ลงทะเบียน</button> -->
-                    <input class="btn btn-primary" type="submit" onclick="ajaxSubmit()" value="ลงทะเบียน">
+                    <input class="btn btn-primary" onclick="ajaxSubmit()"  type="button" value="ลงทะเบียน">
                     <span class="submitting"></span>
                   </div>
                 </div>
@@ -112,7 +112,7 @@
           alert(error+'Error มีบางอย่างผิดพลาด')
       })    
     }
-       async function Liff_Init() {
+      async function Liff_Init() {
         await liff.init({ liffId: "1656692698-MAek81KQ" })
         //const profile = await liff.getProfile()
         //alert(profile.userId)
