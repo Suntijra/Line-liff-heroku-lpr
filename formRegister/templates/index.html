@@ -110,8 +110,11 @@
             if(response.data.Status == true){
               alert('ท่านลงทะเบียนสำเร็จ')
             }
-            else{
+            else if (response.data.Status == true){
               alert('ท่านลงทะเบียนไปแล้ว')
+            }
+            else{
+              alert(response.data.Status)
             }
         }).catch(error =>{
           alert(error+'Error มีบางอย่างผิดพลาด')

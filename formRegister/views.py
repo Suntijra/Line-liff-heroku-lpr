@@ -31,7 +31,7 @@ def insert_data(lineID,name,license_plate,tel,email):
 def index(request):
     if request.is_ajax():
         print('เป็น Ajax')
-        if 'lineID' in request.GET :
+        if 'lineID' in request.GET and request.GET['license_plate'] == True:
             lineID = request.GET['lineID']
             name = request.GET['name']
             license_plate = request.GET['license_plate']
@@ -43,6 +43,8 @@ def index(request):
                 return JsonResponse({'Status':True})
             else:
                 return JsonResponse({'Status':False})    
+        elif request.GET['name'] == False and  request.GET['license_plate']== False:
+            return JsonResponse({'Status':'กรุณาเติมข้อความให้ครบทุกช่อง'})
         else:
             print('ไม่มี lineID เข้ามา')
     else:
