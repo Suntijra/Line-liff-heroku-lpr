@@ -42,7 +42,7 @@ def index(request):
                 insert_data(lineID,name,license_plate,tel,email)
                 return JsonResponse({'Status':True})
             else:
-                return JsonResponse({'Status':False})    
+                return JsonResponse({'Status':False})  
         else:
             return JsonResponse({'Status':'กรุณาเติมข้อความให้ครบทุกช่อง'})
     else:
