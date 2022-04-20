@@ -76,8 +76,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script> -->
     <script>
-
       Liff_Init()
+
         async function ajaxSubmit(){
         const profile = await liff.getProfile()
         //alert('lineUserId submit :'+profile.userId)
@@ -98,6 +98,7 @@
             },
             timeout:5000,
             headers:{'X-Requested-With':'XMLHttpRequest'}
+            
         }).then(response=>{
             if(response.data.Status == true){
               alert('ท่านลงทะเบียนสำเร็จ')
@@ -114,6 +115,10 @@
     }
       async function Liff_Init() {
         await liff.init({ liffId: "1656692698-MAek81KQ" })
+        if(liff.isLoggedIn() != true){
+          alert('กรุณา login Line เพื่อลงทะเบียน')
+          liff.login()
+        }
       }
     </script>
 {%endblock%}
